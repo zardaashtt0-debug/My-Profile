@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zardasht | Developer</title>
+
+<!-- ICON -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ROOT */
+
+:root{
+    --bg:#020617;
+    --card:rgba(255,255,255,0.05);
+    --text:#ffffff;
+    --primary:#3b82f6;
+    --accent:#06b6d4;
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+    --bg:#f1f5f9;
+    --text:#000;
+    --card:rgba(0,0,0,0.05);
+}
+
+/* GLOBAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    transition:0.4s;
+}
+
+/* BACKGROUND EFFECT */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#3b82f6;
+    filter:blur(180px);
+    top:-200px;
+    left:-150px;
+    z-index:-1;
+    opacity:0.4;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#06b6d4;
+    filter:blur(180px);
+    bottom:-200px;
+    right:-100px;
+    z-index:-1;
+    opacity:0.4;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(0,0,0,0.2);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:var(--accent);
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin:0 15px;
+}
+
+nav ul li a{
+    color:var(--text);
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    color:var(--accent);
+}
+
+.icons i{
+    margin:0 10px;
+    cursor:pointer;
+    font-size:20px;
+    transition:0.3s;
+}
+
+.icons i:hover{
+    color:var(--accent);
+    transform:scale(1.2);
+}
+
+/* HERO */
+
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#3b82f6,#06b6d4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:fade 1s ease;
+}
+
+.typing{
+    font-size:1.3rem;
+    margin-top:15px;
+    color:#94a3b8;
+}
+
+/* BUTTON */
+
+.btn{
+    margin-top:30px;
+    padding:14px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* SECTION */
+
+.section{
+    padding:100px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    padding:35px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(59,130,246,0.2);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:var(--accent);
+}
+
+/* SOCIAL */
+
+.social{
+    text-align:center;
+    margin-top:50px;
+}
+
+.social a{
+    color:var(--text);
+    margin:0 15px;
+    font-size:30px;
+    transition:0.4s;
+}
+
+.social a:hover{
+    color:var(--accent);
+    transform:translateY(-5px) scale(1.2);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+}
+
+/* ANIMATION */
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    header h1{
+        font-size:2.5rem;
+    }
+
+    .title{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Zardasht</div>
+
+<ul>
+<li><a href="#" id="navHome">سەرەکی</a></li>
+
+<li><a href="#skills" id="navSkills">تواناکانم</a></li>
+
+<li><a href="#social" id="navSocial">سۆشیاڵ</a></li>
+</ul>
+
+<div class="icons">
+
+<i class="fas fa-moon" onclick="toggleMode()"></i>
+
+<i class="fas fa-language" onclick="toggleLang()"></i>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<header>
+
+<h1 id="title">زەردەشت هێمن</h1>
+
+<p class="typing" id="typing"></p>
+
+<a href="mailto:zardaashtt0@gmail.com"
+class="btn"
+id="contactBtn">
+
+پەیوەندی بکە
+
+</a>
+
+</header>
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+
+<h2 class="title" id="skillsTitle">
+تواناکانم
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>🎨 UI/UX Design</h3>
+
+<p>Modern & Creative Design</p>
+
+</div>
+
+<div class="card">
+
+<h3>💻 Programming</h3>
+
+<p>C++ , C# , Java , Android Studio</p>
+
+</div>
+
+<div class="card">
+
+<h3>🗄️ Database</h3>
+
+<p>SQL Server</p>
+
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+
+<div class="social" id="social">
+
+<a href="https://facebook.com/" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://instagram.com/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://tiktok.com/" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://github.com/" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Zardasht Developer
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* DARK MODE */
+
+function toggleMode(){
+
+    document.body.classList.toggle("light-mode");
+
+}
+
+/* LANGUAGE */
+
+let kurdish = true;
+
+function toggleLang(){
+
+    kurdish = !kurdish;
+
+    if(kurdish){
+
+        document.documentElement.lang = "ku";
+        document.documentElement.dir = "rtl";
+
+        document.getElementById("navHome").innerHTML = "سەرەکی";
+
+        document.getElementById("navSkills").innerHTML = "تواناکانم";
+
+        document.getElementById("navSocial").innerHTML = "سۆشیاڵ";
+
+        document.getElementById("title").innerHTML = "زەردەشت هێمن";
+
+        document.getElementById("contactBtn").innerHTML = "پەیوەندی بکە";
+
+        document.getElementById("skillsTitle").innerHTML = "تواناکانم";
+
+        text = "پڕۆگرامەر | دیزاینەر | Developer";
+
+    }
+
+    else{
+
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+
+        document.getElementById("navHome").innerHTML = "Home";
+
+        document.getElementById("navSkills").innerHTML = "My Skills";
+
+        document.getElementById("navSocial").innerHTML = "Social";
+
+        document.getElementById("title").innerHTML = "Zardasht Hemn";
+
+        document.getElementById("contactBtn").innerHTML = "Contact Me";
+
+        document.getElementById("skillsTitle").innerHTML = "My Skills";
+
+        text = "Programmer | Designer | Developer";
+    }
+
+    restartTyping();
+}
+
+/* TYPING EFFECT */
+
+let text = "پڕۆگرامەر | دیزاینەر | Developer";
+
+let i = 0;
+
+function typing(){
+
+    if(i < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typing,100);
+    }
+}
+
+function restartTyping(){
+
+    document.getElementById("typing").innerHTML = "";
+
+    i = 0;
+
+    typing();
+}
+
+typing();
+
+</script>
+
+</body>
+</html>
